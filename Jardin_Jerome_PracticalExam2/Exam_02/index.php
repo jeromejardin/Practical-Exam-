@@ -18,7 +18,7 @@ fclose($newfile); //to close the file
 
 
 //test case if its working 
-$newfile2 = fopen("sampol.php", "w"); //code to create a new file and write on it
+$newfile2 = fopen("sampol.txt", "w"); //code to create a new file and write on it
 $content2 = 
 "<?php
 
