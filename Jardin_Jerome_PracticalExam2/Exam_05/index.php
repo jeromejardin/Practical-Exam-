@@ -1,0 +1,15 @@
+<?php
+
+function rev($word){
+    return strrev($word);
+    
+} // function to reverse the spelling of the given word
+
+$word = "Wood";
+$laugh = "Laugh";
+echo "The word is: ". $laugh . " and " . $word ; //display the original spelling of the word
+echo "<br> The reversed spelling is: ". rev($laugh) . " and " .$word; //display the reversed spelling of the word
+
+
+
+?>

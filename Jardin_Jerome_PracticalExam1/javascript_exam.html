@@ -1,0 +1,98 @@
+<html>
+
+    <h2 id="quick"> </h2>
+    <h3 id="json"> </h3>
+    <script>
+        var string = "TheQuickBrownFoxJumpsOverTheLazyDog";
+        var rep = string.replace("The", "THE".toUpperCase()); //Make the "the" capitalize
+        var space = rep.replace(/([A-Z])/g, ' $1').trim(); //Separate capitalize letters to add spaces
+        var fix = space.replace(/T H E/g, "THE"); //remove spaces from the word "THE"
+        
+        
+        document.getElementById("quick").innerHTML = fix; //display in html
+    </script>
+
+    
+
+    <body>
+        <!-- Table container-->
+        <table class="tab" >
+            <tr>
+                <th> ID </th>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Birthday </th>
+                <th> Gender <div class="radio"> </div></th>
+                <th> Known Language </th>
+            </tr>
+
+            <tbody id="tabcont"> </tbody>
+        </table>
+
+        <script>
+            var emp = [
+                {
+                    "id":"1",
+                    "firstName":"John",
+                    "lastName":"Doe",
+                    "birthday":"1990-05-07",
+                    "gender":{
+                        "male":true,
+                        "female":false    
+                    },
+                    "knownLanguage":{
+                        "English":true,
+                        "Japanese":true,
+                        "Chinese":true
+                    }
+                },
+                {
+                    "id":"2",
+                    "firstName":"Lina",
+                    "lastName":"Art",
+                    "birthday":"1994-08-05",
+                    "gender":{
+                        "male":false,
+                        "female":true    
+                    },
+                    "knownLanguage":{
+                        "English":true,
+                        "Japanese":true,
+                        "Chinese":false
+                    }
+                }
+            ]
+            
+            buildTable(emp)
+            function buildTable(cont){
+                var table = document.getElementById('tabcont')
+
+                //iterate the table depending on the JSON values
+                for (var x = 0; x<cont.length; x++){
+                    var row = 
+                    //display every data in a table; INPUT TYPE to contain gender and knownLanguage and to Check if its true to check the radio button or checkbox
+                        `<tr>
+                            <td>${cont[x].id} </td>
+                            <td>${cont[x].firstName} </td>
+                            <td>${cont[x].lastName} </td>
+                            <td>${cont[x].birthday} </td>
+                            <td> <input type="radio" name="gend" disabled ${cont[x].gender.male ? 'checked' : ''}> Male 
+                                <input type="radio" name="gend2" disabled ${cont[x].gender.female ? 'checked' : ''}> Female 
+                            </td>
+                            <td>
+                                <input type="checkbox" id="lang1" disabled ${cont[x].knownLanguage.English ? 'checked' : ''}> English
+                                <input type="checkbox" id="lang2" disabled ${cont[x].knownLanguage.Japanese ? 'checked' : ''}> Japanese
+                                <input type="checkbox" id="lang3" disabled ${cont[x].knownLanguage.Chinese ? 'checked' : ''}> Chinese
+                            </td>
+
+                        </tr>`
+                    table.innerHTML += row
+                }
+            }
+            
+
+        </script>
+    </body>
+        
+
+</html>
