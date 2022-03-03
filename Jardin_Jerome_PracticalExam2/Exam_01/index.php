@@ -1,6 +1,9 @@
 <?php
     //function to check the reverse spelling is same with the original word
     function Palin($input){
+         
+        $input = str_replace(' ','', $input); //remove spaces between words
+
         if(strrev($input) == $input){
             return 1;
         }else{
@@ -8,7 +11,7 @@
         }   
     }
 
-    $word = "m a d a m";
+    $word = "nurses run";
     $word2 = "awit";
     $number = "1345";
     $number2 = "29892";
