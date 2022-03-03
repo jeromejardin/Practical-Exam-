@@ -16,4 +16,22 @@ echo 'Exam number two!';
 fwrite($newfile, $content); //function to write on the file
 fclose($newfile); //to close the file
 
+
+//test case if its working 
+$newfile2 = fopen("sampol.php", "w"); //code to create a new file and write on it
+$content2 = 
+"<?php
+
+
+
+echo 'this is a sampol page';
+echo ' U know, nothing is here' ;
+
+
+
+?>";  //content of the newly created file
+
+fwrite($newfile2, $content2); //function to write on the file
+fclose($newfile2); //to close the file
+
 ?>
